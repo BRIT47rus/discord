@@ -1,0 +1,6 @@
+.sidebar {
+    max-width: 344px;
+    width: 344px;
+    outline: 1px solid red;
+    height: 100vh;
+}
