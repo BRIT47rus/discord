@@ -1,5 +1,14 @@
 .active-bar {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--color-font-secondary);
+
+    border-top: 1px solid var(--color--primary);
+    border-bottom: 1px solid var(--color--primary);
+}
+.active-bar__title {
+    display: flex;
+    padding: 4px 8px;
+}
+.active-bar__title span {
+    margin-left: 8px;
 }
