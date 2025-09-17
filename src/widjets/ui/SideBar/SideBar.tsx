@@ -24,6 +24,7 @@ export const SideBar = () => {
                         collapse={item.collapse}
                         position={item.position}
                         title={item.title}
+                        id={item.id}
                     />
                 ))}
 
