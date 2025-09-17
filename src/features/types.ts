@@ -6,13 +6,27 @@ export type TSection = {
 };
 export type TChat = {
     section_id: string;
-    id?: string;
+    id: string;
     title: string;
     position?: number;
     lastmessage?: number;
     unread?: number;
     notification?: boolean;
     mention?: boolean;
+};
+export type TBranch = {
+    chat_id: string;
+    id: string;
+    title: string;
+    position?: number;
+    lastmessage?: number;
+    unread: number;
+    notification?: boolean;
+    mention?: boolean;
+};
+
+export type IBrachies = {
+    response: TBranch[];
 };
 
 export type IChats = {

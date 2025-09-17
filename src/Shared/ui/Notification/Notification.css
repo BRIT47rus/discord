@@ -1,0 +1,14 @@
+.notification {
+    position: relative;
+    line-height: 0;
+    color: var(--color-white);
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color--btn-accent);
+}
+.notification span {
+    position: absolute;
+    top: 8px;
+    left: 2px;
+}

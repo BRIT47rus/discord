@@ -8,7 +8,8 @@ interface Props {
 }
 export const ThemeOfCategory: FC<Props> = ({ id }) => {
     const { data } = useGetChatsQuery();
-    const [response, setResponse] = useState<TChat[]>();
+
+    const [response, setResponse] = useState<TChat[]>([]);
     useEffect(() => {
         if (data) {
             const res = data.response;
@@ -18,19 +19,14 @@ export const ThemeOfCategory: FC<Props> = ({ id }) => {
 
     return (
         <div className="theme-category">
-            <TitleCategory title={'ss'} />
-
-            <div className="theme-category__content">
-                {response &&
-                    response.map((item) => {
-                        return (
-                            <div className="theme-category__top" key={item.id}>
-                                <div className="theme-category__line"></div>
-                                {item.title}
-                            </div>
-                        );
-                    })}
-            </div>
+            {response &&
+                response.map((item) => (
+                    <TitleCategory
+                        key={item.id}
+                        title={item.title}
+                        id={item.id}
+                    />
+                ))}
         </div>
     );
 };

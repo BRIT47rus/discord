@@ -26,3 +26,15 @@
     border-right: none;
     border-bottom-left-radius: 4px;
 }
+.theme-category__info {
+    display: flex;
+
+    flex-grow: 1;
+}
+.theme-category__mention {
+    margin-right: 0;
+    margin-left: auto;
+    display: flex;
+
+    align-items: center;
+}
