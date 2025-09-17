@@ -1,3 +1,5 @@
 .server {
     display: flex;
+    width: 100%;
+    background: var(--color--primary);
 }

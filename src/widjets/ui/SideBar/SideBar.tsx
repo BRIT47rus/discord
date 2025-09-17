@@ -4,7 +4,7 @@ import { ActiveBar } from './ui/ActiveBar/ActiveBar';
 export const SideBar = () => {
     return (
         <div className="sidebar">
-            <div>Server name</div>
+            <div className="sidebar__name">Server name</div>
             <ActiveBar />
             <Category />
             <Category />

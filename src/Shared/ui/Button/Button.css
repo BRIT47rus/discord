@@ -1,5 +1,15 @@
 .button {
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color--primary);
+    background: var(--color--btn-accent);
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+.button-active {
 }
 .button button {
+    border: none;
 }
