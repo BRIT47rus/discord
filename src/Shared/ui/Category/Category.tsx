@@ -29,13 +29,19 @@ export const Category: FC<TSection> = ({ title, collapse, id }) => {
 
     return (
         <div className="category">
-            <div className="category__name" onClick={handleOpenClick}>
-                {title.trim().length ? title : 'Тема'}
-                <ArrowIcon
-                    className={classNames({ category__arrow: notOpen })}
-                />
-            </div>
-            {showContent && <ThemeOfCategory id={id} ref={ref} />}
+            {title.trim().length > 0 ? (
+                <>
+                    <div className="category__name" onClick={handleOpenClick}>
+                        {title.trim().length > 0 ? title : 'Тема'}
+                        <ArrowIcon
+                            className={classNames({ category__arrow: notOpen })}
+                        />
+                    </div>
+                    {showContent && <ThemeOfCategory id={id} ref={ref} />}
+                </>
+            ) : (
+                <>{showContent && <ThemeOfCategory id={id} ref={ref} />}</>
+            )}
         </div>
     );
 };

@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-between;
     padding: 4px 8px;
+    color: var(--color-font-accent);
 }
 .active-bar__title-left {
     display: flex;

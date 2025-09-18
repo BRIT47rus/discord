@@ -25,6 +25,7 @@ export const ThemeBrach = ({ id }: { id: string }) => {
                                 className={classNames({
                                     'theme-category__text-inactive':
                                         !item.notification,
+                                    'mention-active': item.mention,
                                 })}
                             >
                                 {item.title}

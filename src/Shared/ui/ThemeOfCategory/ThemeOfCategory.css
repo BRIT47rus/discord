@@ -38,6 +38,7 @@
 
     align-items: center;
 }
+
 .theme-category__text-inactive {
     color: var(--color--primary);
 }
