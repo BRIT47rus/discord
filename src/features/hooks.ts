@@ -1,6 +1,10 @@
 import { useEffect, useState, type RefObject } from 'react';
 type AnimateStep = 'in' | 'enter' | 'out';
-export function useAnimate(ref: RefObject<HTMLElement>, className: string) {
+export function useAnimate(
+    ref: RefObject<HTMLElement | null>,
+    className: string,
+    ms: number = 500
+) {
     const [animate, setAnimate] = useState<AnimateStep>('in');
     useEffect(() => {
         let timerEnter: number;
@@ -12,14 +16,10 @@ export function useAnimate(ref: RefObject<HTMLElement>, className: string) {
 
             timerEnter = window.setTimeout(() => {
                 setAnimate('enter');
-            }, 300);
+            }, ms);
         } else if (animate === 'enter') {
             ref.current?.classList.remove(className + '-in');
             ref.current?.classList.add(className + '-enter');
-
-            // timerEnter = window.setTimeout(() => {
-            //     setAnimate('out');
-            // }, 300);
         } else if (animate === 'out') {
             ref.current?.classList.remove(className + '-enter');
             ref.current?.classList.add(className + '-out');
@@ -28,7 +28,7 @@ export function useAnimate(ref: RefObject<HTMLElement>, className: string) {
         return () => {
             clearTimeout(timerEnter);
         };
-    }, [animate, className, ref]);
+    }, [animate, className, ref, ms]);
     return {
         triggerAnimateIn: () => setAnimate('in'),
         triggerAnimateEnter: () => setAnimate('enter'),

@@ -2,15 +2,63 @@
     min-height: 32px;
     width: 100%;
     align-content: center;
-    padding: 4px;
+    /* padding: 4px; */
     color: var(--color-font-secondary);
     display: flex;
     flex-direction: column;
 }
+
 .category__name {
     display: flex;
 }
+
 .category__arrow {
     transition: all 0.3s ease;
     transform: rotate(90deg);
+}
+
+.theme-category-in {
+    height: 0;
+    opacity: 0;
+    background: blue;
+    overflow: hidden;
+    transition: height 0.3s ease, opacity 0.3s ease;
+    animation: in 0.3s ease forwards;
+}
+
+.theme-category-enter {
+    height: 100%; /* или конкретная высота, например 200px */
+    opacity: 1;
+    overflow: hidden;
+    transition: height 0.3s ease, opacity 0.3s ease;
+}
+
+.theme-category-out {
+    opacity: 1;
+    height: 200px;
+    animation: out 0.3s ease forwards;
+    overflow: hidden;
+}
+@keyframes in {
+    0% {
+        height: 0;
+    }
+    50% {
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+@keyframes out {
+    0% {
+        opacity: 1;
+        height: 200px;
+    }
+    50% {
+    }
+    100% {
+        opacity: 0;
+        height: 0;
+    }
 }
