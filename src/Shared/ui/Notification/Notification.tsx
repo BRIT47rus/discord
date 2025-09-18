@@ -4,12 +4,13 @@ import classNames from 'classnames';
 type ValueProp = '@' | number;
 interface Props {
     value: ValueProp;
+    className?: string;
 }
-export const Notification: FC<Props> = ({ value }) => {
+export const Notification: FC<Props> = ({ value, className = '' }) => {
     const isNumber = typeof value === 'number';
     return (
         <div
-            className={classNames('notification', {
+            className={classNames('notification', className, {
                 'notification-number': !isNumber,
             })}
         >

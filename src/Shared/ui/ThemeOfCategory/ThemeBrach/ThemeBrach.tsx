@@ -3,6 +3,7 @@ import { useGetBrachiesQuery } from '../../../../features/apiLenzaous';
 import type { TBranch } from '../../../../features/types';
 import '../ThemeOfCategory.css';
 import { Notification } from '../../Notification/Notification';
+import classNames from 'classnames';
 
 export const ThemeBrach = ({ id }: { id: string }) => {
     const { data } = useGetBrachiesQuery();
@@ -20,7 +21,14 @@ export const ThemeBrach = ({ id }: { id: string }) => {
                     <div className="theme-category__top" key={item.id}>
                         <div className="theme-category__line"></div>
                         <div className="theme-category__info">
-                            <span>{item.title}</span>
+                            <span
+                                className={classNames({
+                                    'theme-category__text-inactive':
+                                        !item.notification,
+                                })}
+                            >
+                                {item.title}
+                            </span>
                             <div className="theme-category__mention">
                                 {item.mention && <Notification value={'@'} />}
                                 {item.unread > 0 && (

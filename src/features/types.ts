@@ -10,8 +10,8 @@ export type TChat = {
     title: string;
     position?: number;
     lastmessage?: number;
-    unread?: number;
-    notification?: boolean;
+    unread: number;
+    notification: boolean;
     mention?: boolean;
 };
 export type TBranch = {
@@ -21,7 +21,7 @@ export type TBranch = {
     position?: number;
     lastmessage?: number;
     unread: number;
-    notification?: boolean;
+    notification: boolean;
     mention?: boolean;
 };
 

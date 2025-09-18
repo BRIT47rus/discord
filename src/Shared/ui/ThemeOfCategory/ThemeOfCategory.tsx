@@ -24,6 +24,7 @@ export const ThemeOfCategory = forwardRef<HTMLDivElement, Props>(
             <div className="theme-category" ref={ref}>
                 {response.map((item) => (
                     <TitleCategory
+                        notification={item.notification}
                         key={item.id}
                         title={item.title}
                         id={item.id}

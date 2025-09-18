@@ -7,8 +7,12 @@
 }
 .active-bar__title {
     display: flex;
+    justify-content: space-between;
     padding: 4px 8px;
 }
-.active-bar__title span {
+.active-bar__title-left {
+    display: flex;
+}
+.active-bar__title-left span {
     margin-left: 8px;
 }
