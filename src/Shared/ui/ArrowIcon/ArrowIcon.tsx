@@ -1,7 +1,8 @@
+import classNames from 'classnames';
 import './ArrowIcon.css';
-export const ArrowIcon = () => {
+export const ArrowIcon = ({ className }: { className?: string }) => {
     return (
-        <div className="arrow-icon">
+        <div className={classNames('arrow-icon', className)}>
             <svg
                 width="5"
                 height="8"

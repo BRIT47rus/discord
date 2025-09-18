@@ -6,9 +6,20 @@
     height: 20px;
     border-radius: 50%;
     background: var(--color--btn-accent);
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.notification span {
+.notification:not(:last-child) {
+    margin-right: 4px;
+}
+/* .notification span {
     position: absolute;
     top: 8px;
-    left: 2px;
+    left: 4px;
+} */
+.notification-number span {
+    position: absolute;
+    top: 9px;
 }

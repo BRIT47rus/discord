@@ -3,6 +3,7 @@ import { ArrowIcon } from '../ArrowIcon/ArrowIcon';
 import { ThemeOfCategory } from '../ThemeOfCategory/ThemeOfCategory';
 import type { TSection } from '../../../features/types';
 import { useState, type FC } from 'react';
+import classNames from 'classnames';
 
 export const Category: FC<TSection> = ({ title, collapse, id }) => {
     const [notOpen, setNotOpen] = useState(!collapse);
@@ -13,9 +14,11 @@ export const Category: FC<TSection> = ({ title, collapse, id }) => {
     return (
         <div className="category">
             <div className="category__name" onClick={handleOpenClick}>
-                {title.trim().length ? title : 'Тема'} <ArrowIcon />
+                {title.trim().length ? title : 'Тема'}
+                <ArrowIcon
+                    className={classNames({ category__arrow: notOpen })}
+                />
             </div>
-
             {notOpen && <ThemeOfCategory id={id} />}
         </div>
     );

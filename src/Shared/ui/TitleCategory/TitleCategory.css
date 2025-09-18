@@ -1,6 +1,23 @@
 .title-category {
-    /* display: flex; */
+    overflow: hidden;
+    transition: all 1s ease;
 }
+
 .title-category img {
     margin-right: 8px;
+}
+
+.title-category-in {
+    height: 0.1;
+    opacity: 0;
+}
+
+.title-category-enter {
+    height: 100%;
+    opacity: 1;
+}
+
+.title-category-out {
+    height: 0;
+    opacity: 0.1;
 }
