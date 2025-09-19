@@ -1,15 +1,16 @@
-import { forwardRef, useEffect, useState, type HTMLAttributes } from 'react';
+import { forwardRef, useEffect, useState, type RefObject } from 'react';
 import type { TChat } from '../../../features/types';
 import { TitleCategory } from '../TitleCategory/TitleCategory';
 import './ThemeOfCategory.css';
 import { useGetChatsQuery } from '../../../features/apiLenzaous';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+interface Props {
     id: string;
+    onClick?: (ref: RefObject<HTMLDivElement> | null) => void;
 }
 
 export const ThemeOfCategory = forwardRef<HTMLDivElement, Props>(
-    ({ id }, ref) => {
+    ({ id, onClick }, ref) => {
         const { data } = useGetChatsQuery();
         const [response, setResponse] = useState<TChat[]>([]);
 
@@ -21,7 +22,15 @@ export const ThemeOfCategory = forwardRef<HTMLDivElement, Props>(
         }, [data, id]);
 
         return (
-            <div className="theme-category" ref={ref}>
+            <div
+                className="theme-category"
+                ref={ref}
+                onClick={() =>
+                    onClick
+                        ? onClick(ref as RefObject<HTMLDivElement> | null)
+                        : undefined
+                }
+            >
                 {response.map((item) => (
                     <TitleCategory
                         notification={item.notification}

@@ -7,9 +7,12 @@
     padding-left: 9px;
 }
 .theme-category__top {
+    position: relative;
     border-left: 1px solid var(--color-font-secondary);
     /* padding: 4px 8px; */
     display: flex;
+    z-index: 100;
+    cursor: pointer;
 }
 .theme-category__line {
     width: 10px;
