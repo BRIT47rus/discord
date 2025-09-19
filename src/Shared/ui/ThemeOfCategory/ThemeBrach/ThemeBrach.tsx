@@ -4,10 +4,13 @@ import type { TBranch } from '../../../../features/types';
 import '../ThemeOfCategory.css';
 import { Notification } from '../../Notification/Notification';
 import classNames from 'classnames';
+import { useAppDispatch, useAppSellector } from '../../../../App/store';
+import { setSelected } from '../../../../features/categorySlice';
 export const ThemeBrach = ({ id }: { id: string }) => {
     const { data } = useGetBrachiesQuery();
-    const [selected, setSelected] = useState<{ [key: string]: boolean }>({});
     const [responseBranchies, setResponseBranchies] = useState<TBranch[]>([]);
+    const selected = useAppSellector((state) => state.isSelected);
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         if (data) {
@@ -15,20 +18,18 @@ export const ThemeBrach = ({ id }: { id: string }) => {
             setResponseBranchies(res.filter((item) => item.chat_id === id));
         }
     }, [data, id]);
+
     useEffect(() => {
-        const initSelected: { [key: string]: boolean } = {};
         responseBranchies.forEach((item) => {
-            initSelected[item.id] = false;
+            dispatch(setSelected({ id: item.id, value: false }));
         });
-    }, [responseBranchies]);
+    }, [responseBranchies, dispatch]);
+
+    //TODO need fix
 
     const handleClick = (id: string) => {
-        setSelected((prev) => {
-            return { ...prev, [id]: !prev[id] };
-        });
-        //TODO need fix
+        dispatch(setSelected({ id, value: !selected[id] }));
     };
-
     return (
         <div className="theme-category__content">
             {responseBranchies &&
