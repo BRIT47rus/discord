@@ -2,7 +2,7 @@ import './Category.css';
 import { ArrowIcon } from '../ArrowIcon/ArrowIcon';
 import { ThemeOfCategory } from '../ThemeOfCategory/ThemeOfCategory';
 import type { TSection } from '../../../features/types';
-import { useRef, useState, type FC, type RefObject } from 'react';
+import { useRef, useState, type FC } from 'react';
 import classNames from 'classnames';
 import { useAnimate } from '../../../features/hooks';
 
@@ -28,24 +28,11 @@ export const Category: FC<TSection> = ({ title, collapse, id }) => {
 
         setNotOpen((prev) => !prev);
     };
-    //TODO
-    const handleFocuse = (ref: RefObject<HTMLDivElement> | null) => {
-        if (ref?.current.previousElementSibling) {
-            ref.current.previousElementSibling.classList.add(
-                'theme-category-focuse'
-            );
-        }
-        console.log(
-            ref?.current.childNodes.forEach((item) => console.log(item))
-        );
-        if (ref?.current.classList.contains('theme-category-focuse')) {
-            console.log('dd');
-        }
-    };
-
+    //TODO Главный туту работаем над титлем чатов
+    //
     return (
         <div className="category">
-            {!title && <ThemeOfCategory id={id} ref={ref} />}
+            {!title && <ThemeOfCategory id={id} />}
             {title.trim().length > 0 && (
                 <>
                     <div className="category__name" onClick={handleOpenClick}>
@@ -54,13 +41,7 @@ export const Category: FC<TSection> = ({ title, collapse, id }) => {
                             className={classNames({ category__arrow: notOpen })}
                         />
                     </div>
-                    {showContent && (
-                        <ThemeOfCategory
-                            id={id}
-                            ref={ref}
-                            onClick={handleFocuse}
-                        />
-                    )}
+                    {showContent && <ThemeOfCategory id={id} />}
                 </>
             )}
         </div>

@@ -7,6 +7,7 @@ import type { TSection } from '../../../features/types';
 export const SideBar = () => {
     const { data } = useGetSectionsQuery();
     const [response, setResponse] = useState<TSection[]>([]);
+
     useEffect(() => {
         if (data) {
             const res = data?.response;

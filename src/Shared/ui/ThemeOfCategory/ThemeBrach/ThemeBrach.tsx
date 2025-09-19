@@ -5,7 +5,10 @@ import '../ThemeOfCategory.css';
 import { Notification } from '../../Notification/Notification';
 import classNames from 'classnames';
 import { useAppDispatch, useAppSellector } from '../../../../App/store';
-import { setSelected } from '../../../../features/categorySlice';
+import {
+    setSelected,
+    toggleSelected,
+} from '../../../../features/categorySlice';
 export const ThemeBrach = ({ id }: { id: string }) => {
     const { data } = useGetBrachiesQuery();
     const [responseBranchies, setResponseBranchies] = useState<TBranch[]>([]);
@@ -21,14 +24,22 @@ export const ThemeBrach = ({ id }: { id: string }) => {
 
     useEffect(() => {
         responseBranchies.forEach((item) => {
-            dispatch(setSelected({ id: item.id, value: false }));
+            if (!selected[item.id]) {
+                dispatch(
+                    setSelected({
+                        id: item.id,
+                        chat_id: item.chat_id,
+                        select: false,
+                    })
+                );
+            }
         });
-    }, [responseBranchies, dispatch]);
-
+    }, [responseBranchies, dispatch, selected]);
+    console.log(selected);
     //TODO need fix
 
     const handleClick = (id: string) => {
-        dispatch(setSelected({ id, value: !selected[id] }));
+        dispatch(toggleSelected(id));
     };
     return (
         <div className="theme-category__content">
@@ -36,7 +47,7 @@ export const ThemeBrach = ({ id }: { id: string }) => {
                 responseBranchies.map((item) => (
                     <div
                         className={classNames('theme-category__top', {
-                            'theme-category-focuse': selected[item.id],
+                            'theme-category-focuse': selected[item.id]?.select,
                         })}
                         key={item.id}
                         onClick={() => handleClick(item.id)}
