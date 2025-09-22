@@ -19,6 +19,7 @@ export const ThemeOfCategory: FC<Props> = ({ id }) => {
             setResponse(res.filter((item) => item.section_id === id));
         }
     }, [data, id]);
+    console.log(response);
 
     return (
         <div className="theme-category">

@@ -35,7 +35,7 @@ export const ThemeBrach = ({ id }: { id: string }) => {
             }
         });
     }, [responseBranchies, dispatch, selected]);
-    console.log(selected);
+
     //TODO need fix
 
     const handleClick = (id: string) => {

@@ -10,6 +10,7 @@ body {
 }
 
 .mention-active {
-    color: var(--color-font-accent);
+    /* background: var(--color--primary); */
+
     font-weight: 600;
 }

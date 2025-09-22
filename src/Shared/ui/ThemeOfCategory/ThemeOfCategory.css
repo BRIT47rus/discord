@@ -31,6 +31,8 @@
 }
 .theme-category__info {
     display: flex;
+    padding: 0 4px;
+    border-radius: 4px;
 
     flex-grow: 1;
 }

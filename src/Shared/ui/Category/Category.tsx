@@ -10,7 +10,6 @@ export const Category: FC<TSection> = ({ title, collapse, id }) => {
     const [notOpen, setNotOpen] = useState(!collapse);
     const [showContent, setShowContent] = useState(!collapse); // задержка удаления
     const ref = useRef<HTMLDivElement | null>(null);
-
     const duration = 300;
     const { triggerAnimateIn, triggerAnimateEnter, triggerAnimateOut } =
         useAnimate(ref, 'theme-category', duration);
@@ -30,12 +29,16 @@ export const Category: FC<TSection> = ({ title, collapse, id }) => {
     };
     //TODO Главный туту работаем над титлем чатов
     //
+
     return (
         <div className="category">
             {!title && <ThemeOfCategory id={id} />}
             {title.trim().length > 0 && (
                 <>
-                    <div className="category__name" onClick={handleOpenClick}>
+                    <div
+                        className={classNames('category__name', {})}
+                        onClick={handleOpenClick}
+                    >
                         {title.trim().length > 0 ? title : 'Тема'}
                         <ArrowIcon
                             className={classNames({ category__arrow: notOpen })}

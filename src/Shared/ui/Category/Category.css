@@ -41,8 +41,9 @@
 }
 
 .theme-category-focuse {
-    color: red;
-    outline: 1px solid blue;
+    color: var(--color--btn-accent);
+
+    transition: all 0.1s ease;
 }
 @keyframes in {
     0% {
